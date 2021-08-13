@@ -1,0 +1,28 @@
+/*
+ * Basic styling to edit the style of the body tag and map element
+ *
+ * @author Alex Desbans
+ */
+@charset "utf-8";
+
+body {
+    background-image: linear-gradient(to bottom right, lightblue, lightgreen);
+    background-attachment: fixed;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    list-style-position: inside;
+}
+
+#map { 
+    height: 350px; 
+    width: 800px;
+    padding: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border: double;
+}
+
+li {
+    margin-bottom: 20px;
+}

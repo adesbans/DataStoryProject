@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <!-- always put your name in your work -->
+      <meta name="author" content="Alex Desbans">
+      <!-- always label your name with a title -->
+      <title>Data Story</title>
+      <!-- scale page to fit entire screen, so it properly fills non-desktop devices -->    
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- DEV-only for easier refreshing: stop the web browser from ever caching this page or its images -->
+      <meta http-equiv="Cache-Control" content="no-cache" />
+      <meta http-equiv="Pragma" content="no-cache" />
+      <meta http-equiv="Expires" content="0" />
+       <!-- include leaflet API for displaying map -->
+       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+       integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+       crossorigin=""/>
+      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""></script>
+      <!-- include styling for this page -->
+      <link rel="stylesheet" href="style.css">
+      <!-- include JavaScript page to manipulate page -->
+      <script defer src="dataStory.js"></script>
+  </head>
+  <body>
+      <!-- creates a header -->
+    <header>
+        <h2>Effects of Unemployment Rate</h2>
+    </header>
+    
+    <main>
+        <div id="map"> 
+            <!-- Area used to display world map using Leaflet -->
+        </div>
+        
+        <!-- this div will contain all of the buttons -->
+        <div>
+            <input id="gdp" type="button" value="Compare to Economic Real Growth Rate" onclick="compareToGrowthRate()"/>
+            <input id="population" type="button" value="Compare to Population Growth Rate" onclick="compareToPopulationGrowthRate()"/>
+            <input id="literacy_rate" type="button" value="Compare to Literacy Rate" onclick="compareToLiteracyRate()"/>
+            <input id="clear" type="button" value="Clear Map" onclick="clearMap()"/>
+
+        </div>
+        
+        <!-- this div details my data story and includes a key, which explains what each button displays -->
+        <div >
+            <h3>The Story</h3>
+            <p>This map examines the effect of a country's unemployment rate on three other rates: the economic real growth 
+                rate, the population growth rate, and the literacy rate. Each option displays some interesting results - 
+                it highlights certain regions in the world that perform well, average, or poorly in each of the three rates
+                compared to the unemployment rate.
+            </p>
+            <h3>Key</h3>
+            <ol>
+                <li><strong>Real Growth Rate</strong>: This button divides a country's real growth rate by their unemployment rate.
+                The map displays a large green circle on countries with a high real growth rate and low unemployment rate (ratio > 1.5). 
+                The map displays a medium yellow circle on countries with a low real growth rate and average unemployment rate (ratio > 0). 
+                The map displays a small red circle for countrues with a negative real growth rate (ratio &lt; 0).</li>
+                
+                <li><strong>Population Growth Rate</strong>: This button divides a country's population growth rate by their unemployment rate.
+                The map displays a large green circle on countries with a high population growth rate and low unemployment rate (ratio > 0.3). 
+                The map displays a medium yellow circle on countries with a low population growth rate and average unemployment rate (ratio > 0). 
+                The map displays a small red circle for countrues with a negative population growth rate (ratio &lt; 0).</li>
+                
+                <li><strong>Literacy Rate</strong>: This button divides a country's literacy rate by their unemployment rate.
+                The map displays a large green circle on countries with a high literacy rate and low unemployment rate (ratio > 50). 
+                The map displays a medium yellow circle on countries with an average literacy rate and average unemployment rate (ratio > 15). 
+                The map displays a small red circle for countrues with a low literacy rate and high unemployment rate (ratio > 0).</li>
+            </ol>
+            <br>
+            <p><strong>Note: </strong>Circles of the same color may be of slightly different size due to the orientation of the map - 
+            their size is defined in kilometers, and this constant value is proportioned differently on different countries. 
+            Additionally, countries that do not have a circle did not have the necessary data in the file required to calculate a certain ratio.</p>
+        </div>
+
+    </main>
+    <br>
+    <br>
+    <br>
+
+    <!-- this footer attributes the work that I used from other resources and my Creative Commons License-->
+    <footer>
+        Powered by <a href="https://leafletjs.com/">Leaflet</a>, the <a href="https://www.cia.gov/the-world-factbook/">CIA World FactBook</a>, and credit
+        to <a href="https://github.com/iancoleman/cia_world_factbook_api">Ian Coleman</a> for converting it to JSON format. 
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+    </footer>
+  </body>
+</html>
